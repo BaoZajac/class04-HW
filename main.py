@@ -19,58 +19,43 @@ None
 # element = a, b, c, ...        +
 # 10kg >= element >= 1kg        +
 # wysłanie paczki -> max_elementow and a + b + c + ... <= 20kg  +
-# element = 0kg -> koniec programu      +
-# wyswietlić podsumowania       +
-# element > 10kg or 1kg > element > 0kg -> błąd programu    +
+# element = 0kg -> raport       +
+# wyswietlić podsumowania
+# element > 10kg or 1kg > element > 0kg -> błąd programu        +
 
-waga_elementu = int(input())
+waga_elementu = float(input())
 waga_paczki = 0
-waga_paczki += waga_elementu
 paczki_wyslane = 0
-pierwszy_element = 1
 kg_wyslane = 0
-# waga_paczki_starej = 0
-najlzejsza_paczka = 0
+najlzejsza_paczka = 20
 nr_najlzejszej_paczki = 0
 
-#TODO: naprawić błąd: szablon na wysłanie paczki nie działa w programie -pętla?
-# tpl_wyslanie_paczki = "Wyślij paczkę! Twoja paczka nr {} waży: {}kg.\n ------------------"
-# wyslanie_paczki = tpl_wyslanie_paczki.format(paczki_wyslane, waga_paczki)
+waga_paczki += waga_elementu
 
-if waga_paczki > 20:
-    print("Twój pierwszy element jest za ciężki! Nie możemy wysłać Twojej paczki.")
-    pierwszy_element = 0
-
-while waga_elementu and pierwszy_element == 1:
-    if waga_elementu == 0:
-        break
-    elif (waga_elementu > 10) or (1 > waga_elementu > 0):
+while waga_elementu:
+    if (waga_elementu > 10) or (1 > waga_elementu > 0):
         waga_elementu = waga_elementu + input()         # wystąpienie błedu jest celowe
     elif waga_paczki <= 20:
         print(f"Waga dodanego elementu: [{waga_elementu}kg]")
         print(f"Aktualna waga paczki: [{waga_paczki}kg]\n")
         waga_elementu = input()
         if waga_elementu:
-            waga_elementu = int(waga_elementu)
+            waga_elementu = float(waga_elementu)
             waga_paczki += waga_elementu
-            if waga_elementu == 0:
-                paczki_wyslane += 1
-                print(f"Wyślij paczkę! Twoja paczka nr {paczki_wyslane} waży: {waga_paczki}kg.\n ------------------")
-                kg_wyslane += waga_paczki
         else:
             paczki_wyslane += 1
             print(f"Wyślij paczkę! Twoja paczka nr {paczki_wyslane} waży: {waga_paczki}kg.\n ------------------")
             kg_wyslane += waga_paczki
 
-        if paczki_wyslane == 1:
+        if (paczki_wyslane == 1) or (najlzejsza_paczka > waga_paczki):
             najlzejsza_paczka = waga_paczki
             nr_najlzejszej_paczki = paczki_wyslane
-        elif najlzejsza_paczka > waga_paczki:
-            najlzejsza_paczka = waga_paczki
-            nr_najlzejszej_paczki = paczki_wyslane
+            print("2")
         else:
-            najlzejsza_paczka = najlzejsza_paczka
+            #TODO: sprawdzić ten warunek
             nr_najlzejszej_paczki = paczki_wyslane
+            print("3")
+#TODO: poprawić błąd w sprawdzaniu najlżejszej paczki
 
     else:
         waga_paczki -= waga_elementu
@@ -80,6 +65,8 @@ while waga_elementu and pierwszy_element == 1:
         waga_paczki = 0
         waga_paczki += waga_elementu
 
+if nr_najlzejszej_paczki == 0:
+    najlzejsza_paczka = 0
 
 print(f"\nRAPORT: \n\
 Ilość wysłanych paczek to: [{paczki_wyslane}]\n\
