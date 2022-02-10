@@ -1,0 +1,36 @@
+Waga dodanego elementu: [8kg]
+Aktualna waga paczki: [8kg]
+
+Waga dodanego elementu: [2kg]
+Aktualna waga paczki: [10kg]
+
+Waga dodanego elementu: [4kg]
+Aktualna waga paczki: [14kg]
+
+Waga dodanego elementu: [1kg]
+Aktualna waga paczki: [15kg]
+
+Waga dodanego elementu: [3kg]
+Aktualna waga paczki: [18kg]
+
+Wyœlij paczkê! Twoja paczka nr 1 wa¿y: 18kg.
+ ------------------
+Waga dodanego elementu: [10kg]
+Aktualna waga paczki: [10kg]
+
+Waga dodanego elementu: [9kg]
+Aktualna waga paczki: [19kg]
+
+Wyœlij paczkê! Twoja paczka nr 2 wa¿y: 19kg.
+ ------------------
+Waga dodanego elementu: [10kg]
+Aktualna waga paczki: [10kg]
+
+Wyœlij paczkê! Twoja paczka nr 3 wa¿y: 10kg.
+ ------------------
+
+RAPORT: 
+Iloœæ wys³anych paczek to: [3]
+Iloœæ wys³anych kg to: [47]
+Iloœæ pustych kg to: [13]
+Najl¿ejsza paczka to paczka nr [3] i wa¿y kg: [10]
