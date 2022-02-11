@@ -44,26 +44,35 @@ while waga_elementu:
             waga_paczki += waga_elementu
         else:
             paczki_wyslane += 1
+            # print("Tu jest widoczny błąd nr najlżejszej paczki! ")
             print(f"Wyślij paczkę! Twoja paczka nr {paczki_wyslane} waży: {waga_paczki}kg.\n ------------------")
             kg_wyslane += waga_paczki
 
-        if (paczki_wyslane == 1) or (najlzejsza_paczka > waga_paczki):
-            najlzejsza_paczka = waga_paczki
-            nr_najlzejszej_paczki = paczki_wyslane
-            print("2")
-        else:
-            #TODO: sprawdzić ten warunek
-            nr_najlzejszej_paczki = paczki_wyslane
-            print("3")
-#TODO: poprawić błąd w sprawdzaniu najlżejszej paczki
+            if (paczki_wyslane == 1) or (najlzejsza_paczka > waga_paczki):
+                najlzejsza_paczka = waga_paczki
+                nr_najlzejszej_paczki = paczki_wyslane
+                # print("1")
+            # else:
+            #     nr_najlzejszej_paczki = paczki_wyslane
+            #     print("2")
 
     else:
         waga_paczki -= waga_elementu
         paczki_wyslane += 1
         print(f"Wyślij paczkę! Twoja paczka nr {paczki_wyslane} waży: {waga_paczki}kg.\n ------------------")
         kg_wyslane += waga_paczki
+
+        if (paczki_wyslane == 1) or (najlzejsza_paczka > waga_paczki):
+            najlzejsza_paczka = waga_paczki
+            nr_najlzejszej_paczki = paczki_wyslane
+            # print("3")
+        # else:
+        #     # nr_najlzejszej_paczki = paczki_wyslane
+        #     print("4")
+
         waga_paczki = 0
         waga_paczki += waga_elementu
+
 
 if nr_najlzejszej_paczki == 0:
     najlzejsza_paczka = 0
