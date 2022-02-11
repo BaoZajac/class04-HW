@@ -68,21 +68,21 @@ while waga_elementu:
 
 # poniższy else (razem z "if waga_elementu > 0:" przed pętlą)
 # jest zbędny, gdy:     0 jest pierwsze na liście
-# jest potrzebny, gdy:  na liście nie ma 0 - ALE TU ŹLE LICZY PUSTE KG
+# jest potrzebny, gdy:  na liście nie ma 0
 # nie działa dla:       0 w środku listy
 
 # poniższy else (bez tego if przed pętlą, a dla pętli)
 # jest zbędny, gdy:     0 jest pierwsze na liście,
-#                       na liście nie ma 0 - ALE TU ŹLE LICZY PUSTE KG
+#                       na liście nie ma 0
 # jest potrzebny gdy:   0 jest w środku listy
 
-else:
-    paczki_wyslane += 1
-    print(f"Wyślij paczkę! Twoja paczka nr {paczki_wyslane} waży: {waga_paczki}kg.\n ------------------")
-    kg_wyslane += waga_paczki
-    if (paczki_wyslane == 1) or (najlzejsza_paczka > waga_paczki):
-        najlzejsza_paczka = waga_paczki
-        nr_najlzejszej_paczki = paczki_wyslane
+# else:
+#     paczki_wyslane += 1
+#     print(f"Wyślij paczkę! Twoja paczka nr {paczki_wyslane} waży: {waga_paczki}kg.\n ------------------")
+#     kg_wyslane += waga_paczki
+#     if (paczki_wyslane == 1) or (najlzejsza_paczka > waga_paczki):
+#         najlzejsza_paczka = waga_paczki
+#         nr_najlzejszej_paczki = paczki_wyslane
 
 if nr_najlzejszej_paczki == 0:
     najlzejsza_paczka = 0
