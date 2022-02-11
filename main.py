@@ -1,27 +1,27 @@
 #   TREŚĆ ZADANIA
-# Napisz program do obsługi ładowarki paczek.       +
+# Napisz program do obsługi ładowarki paczek.               +
 # Każda paczka może maksymalnie zmieścić 20 kg towaru.      +
-# Do paczki dodawane są elementy. Każdy z nich może ważyć od 1 do 10 kg.    +
+# Do paczki dodawane są elementy. Każdy z nich może ważyć od 1 do 10 kg.        +
 # Jeśli dodanie elementu do paczki zwiększyłoby ciężar paczki powyżej 20kg,\
 #   paczka powinna zostać wysłana (nie można już do niej dodać w przyszłości elementów), a bieżący element powinien zostać dodany do nowej paczki.      +
-# Wszystkie elementy powinny zostać wysłane.        +
-# Program powinien pobierać maksymalną liczbę elementów do wysyłki.     +
-# Jeśli podano element o wadze 0, program powinien zakończyć działanie, tak jakby maksymalna liczba paczek została osiągnięta.
+# Wszystkie elementy powinny zostać wysłane.             +
+# Program powinien pobierać maksymalną liczbę elementów do wysyłki.             +
+# Jeśli podano element o wadze 0, program powinien zakończyć działanie, tak jakby maksymalna liczba paczek została osiągnięta.      +
 # Na koniec działania program powinien wyświetlić w podsumowaniu:
-#  1. Liczbę paczek wysłanych
-#  2. Liczbę kilogramów wysłanych
-#  3. Suma "pustych" - kilogramów (brak optymalnego pakowania). Liczba paczek * 20 - liczba kilogramów wysłanych
-#  4. Która paczka miała najwięcej "pustych" kilogramów, jaki to był wynik
-# Program powinien kończyć się z błędem, gdy element dodawany ma więcej niż 10kg, lub mniej niż 1 kg i nie był dokładnie równy 0.
+#  1. Liczbę paczek wysłanych           +
+#  2. Liczbę kilogramów wysłanych       +
+#  3. Suma "pustych" - kilogramów (brak optymalnego pakowania). Liczba paczek * 20 - liczba kilogramów wysłanych            +
+#  4. Która paczka miała najwięcej "pustych" kilogramów, jaki to był wynik      +
+# Program powinien kończyć się z błędem, gdy element dodawany ma więcej niż 10kg, lub mniej niż 1 kg i nie był dokładnie równy 0.       +
 None
-# paczka <= 20kg  #max 20kg     +
-# paczka = a + b + c + ...      +
-# element = a, b, c, ...        +
-# 10kg >= element >= 1kg        +
-# wysłanie paczki -> max_elementow and a + b + c + ... <= 20kg  +
-# element = 0kg -> raport       +
+# paczka <= 20kg  #max 20kg
+# paczka = a + b + c + ...
+# element = a, b, c, ...
+# 10kg >= element >= 1kg
+# wysłanie paczki -> max_elementow and a + b + c + ... <= 20kg
+# element = 0kg -> raport
 # wyswietlić podsumowania
-# element > 10kg or 1kg > element > 0kg -> błąd programu        +
+# element > 10kg or 1kg > element > 0kg -> błąd programu
 
 waga_elementu = float(input())
 waga_paczki = 0
@@ -32,7 +32,6 @@ nr_najlzejszej_paczki = 0
 
 waga_paczki += waga_elementu
 
-# if waga_elementu > 0:
 while waga_elementu:
     if (waga_elementu > 10) or (1 > waga_elementu > 0):
         waga_elementu = waga_elementu + input()         # wystąpienie błedu jest celowe
@@ -40,11 +39,10 @@ while waga_elementu:
         print(f"Waga dodanego elementu: [{waga_elementu}kg]")
         print(f"Aktualna waga paczki: [{waga_paczki}kg]\n")
         waga_elementu = input()
-        if waga_elementu:
+        if (waga_elementu) and (waga_elementu != "0"):
             waga_elementu = float(waga_elementu)
             waga_paczki += waga_elementu
         else:
-            # tutaj trzeba rozwiązać problem z dodawaniem 0 w trakcie ?
             paczki_wyslane += 1
             print(f"Wyślij paczkę! Twoja paczka nr {paczki_wyslane} waży: {waga_paczki}kg.\n ------------------")
             kg_wyslane += waga_paczki
@@ -66,23 +64,9 @@ while waga_elementu:
         waga_paczki = 0
         waga_paczki += waga_elementu
 
-# poniższy else (razem z "if waga_elementu > 0:" przed pętlą)
-# jest zbędny, gdy:     0 jest pierwsze na liście
-# jest potrzebny, gdy:  na liście nie ma 0
-# nie działa dla:       0 w środku listy
+    if waga_elementu:
+        waga_elementu = float(waga_elementu)
 
-# poniższy else (bez tego if przed pętlą, a dla pętli)
-# jest zbędny, gdy:     0 jest pierwsze na liście,
-#                       na liście nie ma 0
-# jest potrzebny gdy:   0 jest w środku listy
-
-# else:
-#     paczki_wyslane += 1
-#     print(f"Wyślij paczkę! Twoja paczka nr {paczki_wyslane} waży: {waga_paczki}kg.\n ------------------")
-#     kg_wyslane += waga_paczki
-#     if (paczki_wyslane == 1) or (najlzejsza_paczka > waga_paczki):
-#         najlzejsza_paczka = waga_paczki
-#         nr_najlzejszej_paczki = paczki_wyslane
 
 if nr_najlzejszej_paczki == 0:
     najlzejsza_paczka = 0
