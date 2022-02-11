@@ -23,14 +23,16 @@ None
 # wyswietlić podsumowania
 # element > 10kg or 1kg > element > 0kg -> błąd programu
 
-waga_elementu = float(input())
+waga_elementu = input()
 waga_paczki = 0
 paczki_wyslane = 0
 kg_wyslane = 0
 najlzejsza_paczka = 20
 nr_najlzejszej_paczki = 0
 
-waga_paczki += waga_elementu
+if waga_elementu:
+    waga_elementu = float(waga_elementu)
+    waga_paczki += waga_elementu
 
 while waga_elementu:
     if (waga_elementu > 10) or (1 > waga_elementu > 0):
